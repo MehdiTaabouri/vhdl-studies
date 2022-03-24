@@ -23,7 +23,8 @@ architecture bad of example1 is
     type state_type is (s0, s1, s2, s3);
     signal state : state_type;
 
-    main : process (clk, resetn)
+begin
+    process(clk, resetn)
     begin
         if resetn = '0' then
             state <= s0;
@@ -52,12 +53,14 @@ architecture bad of example1 is
                     end if;
             end case;
         end if;
-    end process main; -- main
+    end process;
 end;
 
 architecture good of example1 is
     type state_type is (s0, s1, s2, s3);
     signal state : state_type;
+	 
+begin
 
     main : process (clk, resetn)
     begin
